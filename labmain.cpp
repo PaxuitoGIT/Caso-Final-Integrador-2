@@ -16,5 +16,16 @@ void load_script(const char* filename, bool show_script =false) {
             std::cout << "Error: could not read file " << filename << std::endl;
             return;
         }
+
+        if (show_script) {
+            std::cout << line << std::endl;
+        }
     }
+}
+
+void load_script() {
+    std::string filename;
+    std::cout << "Por favor, ingrese el nombre del archivo: ";
+    std::cin >> filename;
+    load_script(filename.c_str(),true);
 }
