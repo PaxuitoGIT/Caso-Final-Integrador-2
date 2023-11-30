@@ -4,4 +4,17 @@
 
 void load_script(const char* filename, bool show_script =false) {
     std::ifstream file(filename);
+
+    if (!file) {
+        std::cout << "Error: could not open file " << filename << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        if (file.bad()) {
+            std::cout << "Error: could not read file " << filename << std::endl;
+            return;
+        }
+    }
 }
