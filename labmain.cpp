@@ -1,31 +1,32 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+using namespace std;
 
 void load_script(const char* filename, bool show_script =false) {
-    std::ifstream file(filename);
+    ifstream file(filename);
 
     if (!file) {
-        std::cout << "Error: could not open file " << filename << std::endl;
+        cout << "Error: could not open file " << filename << endl;
         return;
     }
 
-    std::string line;
+    string line;
     while (std::getline(file, line)) {
         if (file.bad()) {
-            std::cout << "Error: could not read file " << filename << std::endl;
+            cout << "Error: could not read file " << filename << endl;
             return;
         }
 
         if (show_script) {
-            std::cout << line << std::endl;
+            cout << line << endl;
         }
     }
 }
 
 void load_script() {
-    std::string filename;
-    std::cout << "Por favor, ingrese el nombre del archivo: ";
-    std::cin >> filename;
+    string filename;
+    cout << "Por favor, ingrese el nombre del archivo: ";
+    cin >> filename;
     load_script(filename.c_str(),true);
 }
